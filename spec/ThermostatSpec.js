@@ -5,9 +5,13 @@ describe("Thermostat", function() {
     thermostat = new Thermostat();
   });
 
-  describe("initial temperature", function() {
+  describe("initialisation", function() {
     it("has a starting temp of 20", function() {
       expect(thermostat.temperature).toEqual(20);
+    });
+
+    it("power save mode is on by default", function() {
+      expect(thermostat.powerSave).toEqual(true);
     });
   });
 
@@ -33,14 +37,13 @@ describe("Thermostat", function() {
   describe("power saving mode", function() {
     it("on - doesn't allow temp to be above 25", function() {
       thermostat.temperature = 25;
-      thermostat.powerSave = true;
       expect(function () {thermostat.up()}).toThrow("Power saving mode on!")
     });
 
     it("off - doesn't allow temp to be above 32", function() {
       thermostat.temperature = 32;
       thermostat.powerSave = false;
-      expect(function() {thermostat.up()}).toThrow("Power saving mode off!")
+      expect(function() {thermostat.up()}).toThrow("Too hot!")
     });
   });
 });
