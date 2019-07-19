@@ -37,7 +37,7 @@ describe("Thermostat", function() {
   describe("power saving mode", function() {
     it("on - doesn't allow temp to be above 25", function() {
       thermostat.temperature = 25;
-      expect(function () {thermostat.up()}).toThrow("Power saving mode on!")
+      expect(function() {thermostat.up()}).toThrow("Power saving mode on!")
     });
 
     it("off - doesn't allow temp to be above 32", function() {
@@ -52,6 +52,23 @@ describe("Thermostat", function() {
       thermostat.temperature = 30;
       thermostat.reset();
       expect(thermostat.temperature).toEqual(20);
+    });
+  });
+
+  describe("thermostat's energy usage", function() {
+    it("shows low-usage when temp < 18", function() {
+      thermostat.temperature = 17;
+      expect(thermostat.usage).toEqual("low-usage");
+    });
+
+    it("shows medium-usage when temp < 25", function() {
+      thermostat.temperature = 24;
+      expect(thermostat.usage).toEqual("medium-usage");
+    });
+
+    it("shows high-usage when temp >= 25", function() {
+      thermostat.temperature = 25;
+      expect(thermostat.usage).toEqual("high-usage");
     });
   });
 });
