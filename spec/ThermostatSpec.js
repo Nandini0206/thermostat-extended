@@ -58,17 +58,17 @@ describe("Thermostat", function() {
   describe("thermostat's energy usage", function() {
     it("shows low-usage when temp < 18", function() {
       thermostat.temperature = 17;
-      expect(thermostat.usage).toEqual("low-usage");
+      expect(thermostat.usage()).toEqual("low-usage");
     });
 
     it("shows medium-usage when temp < 25", function() {
       thermostat.temperature = 24;
-      expect(thermostat.usage).toEqual("medium-usage");
+      expect(thermostat.usage()).toEqual("medium-usage");
     });
 
     it("shows high-usage when temp >= 25", function() {
       thermostat.temperature = 25;
-      expect(thermostat.usage).toEqual("high-usage");
+      expect(thermostat.usage()).toEqual("high-usage");
     });
   });
 });
