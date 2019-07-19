@@ -6,7 +6,10 @@ function Thermostat() {
 Thermostat.prototype.up = function() {
   if (this.temperature === 25) {
     throw "Power saving mode on!";
-  } else {
+  } else if (this.temperature === 32 && this.powerSave === false) {
+    throw "Too hot!"
+  }
+  else {
   return this.temperature = this.temperature + 1;
   }
 };

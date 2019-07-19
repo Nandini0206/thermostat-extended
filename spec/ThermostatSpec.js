@@ -36,5 +36,11 @@ describe("Thermostat", function() {
       thermostat.powerSave = true;
       expect(function () {thermostat.up()}).toThrow("Power saving mode on!")
     });
+
+    it("off - doesn't allow temp to be above 32", function() {
+      thermostat.temperature = 32;
+      thermostat.powerSave = false;
+      expect(function() {thermostat.up()}).toThrow("Power saving mode off!")
+    });
   });
 });
