@@ -1,9 +1,14 @@
 function Thermostat() {
-  this.temperature = 20
+  this.temperature = 20;
+  this.powerSave = true;
 };
 
 Thermostat.prototype.up = function() {
+  if (this.temperature === 25) {
+    throw "Power saving mode on!";
+  } else {
   return this.temperature = this.temperature + 1;
+  }
 };
 
 Thermostat.prototype.down = function() {
@@ -11,5 +16,5 @@ Thermostat.prototype.down = function() {
     throw "Too cold!";
   } else {
     return this.temperature = this.temperature -1;
-  }  
+  }
 };
