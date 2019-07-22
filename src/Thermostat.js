@@ -39,3 +39,7 @@ Thermostat.prototype.usage = function() {
   } else
     return "high-usage";
 };
+
+Thermostat.prototype.currentTemperature = function() {
+  return this.temperature
+};

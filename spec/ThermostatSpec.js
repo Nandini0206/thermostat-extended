@@ -7,7 +7,7 @@ describe("Thermostat", function() {
 
   describe("initialisation", function() {
     it("has a starting temp of 20", function() {
-      expect(thermostat.temperature).toEqual(20);
+      expect(thermostat.DEFAULT_TEMP).toEqual(20);
     });
 
     it("power save mode is on by default", function() {
@@ -69,6 +69,12 @@ describe("Thermostat", function() {
     it("shows high-usage when temp >= 25", function() {
       thermostat.temperature = 25;
       expect(thermostat.usage()).toEqual("high-usage");
+    });
+  });
+
+  describe("current temperature", function() {
+    it("shows current temperature", function() {
+      expect(thermostat.currentTemperature()).toEqual(thermostat.temperature);
     });
   });
 });
