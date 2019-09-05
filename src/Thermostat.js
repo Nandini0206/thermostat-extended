@@ -1,7 +1,7 @@
 function Thermostat() {
   this.DEFAULT_TEMP = 20;
   this.temperature = this.DEFAULT_TEMP;
-  this.powerSave = true;
+  this.powerSave = "on";
   this.MIN_TEMP = 10;
   this.POWER_SAVE_MAX_TEMP = 25;
   this.MAX_TEMP = 32;
@@ -9,9 +9,9 @@ function Thermostat() {
 };
 
 Thermostat.prototype.up = function() {
-  if (this.temperature === this.POWER_SAVE_MAX_TEMP && this.powerSave === true) {
+  if (this.temperature === this.POWER_SAVE_MAX_TEMP && this.powerSave === "on") {
     throw "Power saving mode on!";
-  } else if (this.temperature === this.MAX_TEMP && this.powerSave === false) {
+  } else if (this.temperature === this.MAX_TEMP && this.powerSave === "off") {
     throw "Too hot!"
   }
   else {
@@ -45,10 +45,10 @@ Thermostat.prototype.currentTemperature = function() {
 };
 
 Thermostat.prototype.powerSaveOff = function() {
-  this.powerSave = false;
+  this.powerSave = "off";
 };
 
 Thermostat.prototype.powerSaveOn = function() {
   this.temperature = this.POWER_SAVE_MAX_TEMP;
-  this.powerSave = true;
+  this.powerSave = "on";
 };

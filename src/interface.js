@@ -2,9 +2,15 @@ $(document).ready(function() {
 	  var thermostat = new Thermostat();
 	  $('#temperature').text(thermostat.temperature);
 
-    $('#on').text(thermostat.powerSaveOn());
+    $('#on').on('mouseup', function() {
+      thermostat.powerSaveOn();
+      $('#power-saving-status').text(thermostat.powerSave);
+    });
 
-    $('#off').text(thermostat.powerSaveOff());
+    $('#off').on('mouseup', function() {
+      thermostat.powerSaveOff();
+      $('#power-saving-status').text(thermostat.powerSave);
+    });
 
     $('usage').text(thermostat.usage());
 
