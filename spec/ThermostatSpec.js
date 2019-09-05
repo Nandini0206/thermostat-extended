@@ -80,7 +80,7 @@ describe("Thermostat", function() {
 
   describe("power saving off", function() {
     it("turs power saving off", function() {
-      this.powerSaveOff();
+      thermostat.powerSaveOff();
       expect(thermostat.powerSave).toEqual(false);
     });
   });
