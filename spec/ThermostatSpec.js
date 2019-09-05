@@ -77,4 +77,10 @@ describe("Thermostat", function() {
       expect(thermostat.currentTemperature()).toEqual(thermostat.temperature);
     });
   });
+
+  describe("power saving on", function () {
+    it("turns power saving on", function (){
+      expect(thermostat.powerSave).toEqual(true);
+    });
+  });
 });
