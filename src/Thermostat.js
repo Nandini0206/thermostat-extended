@@ -43,3 +43,8 @@ Thermostat.prototype.usage = function() {
 Thermostat.prototype.currentTemperature = function() {
   return this.temperature
 };
+
+Thermostat.prototype.powerSaveOn = function() {
+  this.temperature = this.POWER_SAVE_MAX_TEMP;
+  this.powerSave = true;
+};

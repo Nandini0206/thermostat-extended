@@ -80,6 +80,8 @@ describe("Thermostat", function() {
 
   describe("power saving on", function () {
     it("turns power saving on", function (){
+      thermostat.powerSaveOff();
+      thermostat.powerSaveOn();
       expect(thermostat.powerSave).toEqual(true);
     });
   });
