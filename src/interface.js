@@ -12,20 +12,41 @@ $(document).ready(function() {
       $('#power-saving-status').text(thermostat.powerSave);
     });
 
-    $('usage').text(thermostat.usage());
+    $('#usage-meter').text(thermostat.usage());
 
-    $('reset').on('mouseup', function() {
+    $('#reset').on('mouseup', function() {
       thermostat.reset();
       $('temperature').text(thermostat.temperature);
+      if(thermostat.usage() === "high-usage") {
+        $('#usage-meter').text(thermostat.usage());
+      } else if (thermostat.usage() === "medium-usage") {
+        $('#usage-meter').text(thermostat.usage());
+      } else if (thermostat.usage() === "low-usage") {
+        $('#usage-meter').text(thermostat.usage());
+      }
     });
 
     $('#up').on('mouseup', function() {
       thermostat.up();
       $('#temperature').text(thermostat.temperature);
+      if(thermostat.usage() === "high-usage") {
+        $('#usage-meter').text(thermostat.usage());
+      } else if (thermostat.usage() === "medium-usage") {
+        $('#usage-meter').text(thermostat.usage());
+      } else if (thermostat.usage() === "low-usage") {
+        $('#usage-meter').text(thermostat.usage());
+      }
     });
 
     $('down').on('mouseup', function(){
       thermostat.down();
       $('#temperature').text(thermostat.temperature);
+      if(thermostat.usage() === "high-usage") {
+        $('#usage-meter').text(thermostat.usage());
+      } else if (thermostat.usage() === "medium-usage") {
+        $('#usage-meter').text(thermostat.usage());
+      } else if (thermostat.usage() === "low-usage") {
+        $('#usage-meter').text(thermostat.usage());
+      }
     });
-})
+  })
