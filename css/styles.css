@@ -24,3 +24,8 @@ button {
   border-style: inset;
   padding: 0 5px 0 5px;
 }
+
+section {
+  font-size: 30px;
+  padding-top: 20px;
+}
