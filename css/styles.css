@@ -4,3 +4,8 @@ body {
 	  background-color: #BC7E9D;
 	  font-family: 'Manjari', sans-serif;
 	}
+
+ h1 {
+   font-size: 60px;
+   font-weight: lighter;
+ }
